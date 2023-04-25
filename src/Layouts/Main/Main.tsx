@@ -1,5 +1,6 @@
 import Header from '@/Components/Shared/Header/Header';
 import React, { FC } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 
 interface Props {
@@ -12,6 +13,7 @@ const Main:FC<Props> = ({children}) => {
             {
             children
             }
+            <Toaster/>
         </div>
     );
 };
