@@ -1,15 +1,13 @@
 import { Hero } from "@/Components/Home/Hero/Hero";
+import LatestPosts from "@/Components/Home/LatestPosts/LatestPosts";
 import WeeklyPopular from "@/Components/Home/WeelyPopular/WeeklyPopular";
-import Head from "next/head";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      
-      <WeeklyPopular/>
-      
-
+      <WeeklyPopular />
+      <LatestPosts />
     </main>
   );
 }

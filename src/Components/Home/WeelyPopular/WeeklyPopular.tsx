@@ -17,7 +17,7 @@ const WeeklyPopular = () => {
         </div>
       </div>
       <div className="col-span-3 my-4">
-        <nav className="flex lg:my-4 2xl:my-12 gap-x-4 cursor-pointer  items-center">
+        <nav className="flex lg:my-8 2xl:my-12 gap-x-4 cursor-pointer  items-center">
           <p className="bg-white  rounded-full hover:bg-slate-700 text-black hover:text-white px-4 py-1">
             All
           </p>
@@ -41,7 +41,7 @@ const WeeklyPopular = () => {
           <SmallVerticalBLogCard />
         </div>
       </div>
-      <div className="col-span-2 px-10" >
+      <div className="col-span-2 " >
         <Social />
         <Image className="my-10" src={add} alt=""></Image>
       </div>

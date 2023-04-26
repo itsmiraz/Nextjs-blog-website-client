@@ -21,12 +21,12 @@ const Header: FC<any> = () => {
   return (
     <header className="flex bg-white py-4 px-10 justify-between">
       <div className="flex font-semibold text-xl items-center gap-x-10">
-        <p>Home</p>
+        <Link href={'/'}>Home</Link>
         <p>Posts</p>
         <p>About</p>
       </div>
       <Image src={logo} alt="" />
-      <div className="space-x-10 flex items-center gap-x-4">
+      <div className="space-x-5 flex items-center gap-x-4">
         {user ? (
           <>
             <p className="font-semibold text-xl">{user.displayName}</p>

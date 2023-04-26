@@ -85,7 +85,7 @@ const Auth: FC<Props> = () => {
   };
 
   return (
-    <div className="h-[700px] relative w-full flex justify-center items-center">
+    <div className="h-[700px] mb-20 relative w-full flex justify-center items-center">
       {/* Sign In */}
 
       <div className="absolute shadow-2xl overflow-hidden w-[800px] left-0 mx-auto right-0  grid grid-cols-2">
