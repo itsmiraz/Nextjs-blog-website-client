@@ -1,5 +1,5 @@
 import Tags from "@/Components/Modules/Tags/Tags";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import image from "../../../Assets/Hero/heroimage.png";
 import Image from "next/image";
 import writer from "../../../Assets/Hero/wirter.png";
@@ -7,6 +7,8 @@ import writer from "../../../Assets/Hero/wirter.png";
 interface Props {}
 
 export const Hero: FC<Props> = () => {
+  const [loading, setloading] = useState(false);
+
   return (
     <>
       <div className="grid grid-cols-2 shadow-xl m-10">
@@ -40,7 +42,21 @@ export const Hero: FC<Props> = () => {
             </div>
           </div>
         </div>
-        <Image className="h-full" src={image} alt=""></Image>
+        <div className="relative rounded-r-2xl overflow-hidden">
+          {loading && (
+            <div className="bg-gray-500 mr-4 opacity-10 absolute top-0 left-0 animate-pulse w-full h-full"></div>
+          )}
+
+          <Image
+            onLoadingComplete={() => setloading(false)}
+            className="h-full"
+            fill
+            src={
+              "https://images.pexels.com/photos/1211968/pexels-photo-1211968.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            }
+            alt=""
+          ></Image>
+        </div>
       </div>
     </>
   );
