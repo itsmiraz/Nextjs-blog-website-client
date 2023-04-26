@@ -4,10 +4,10 @@ import blogImg from "../../../Assets/blog.png";
 import blogImg2 from "../../../Assets/blogimg2.png";
 import blog from "../../../Assets/verticalblog.png";
 import Tags from "../Tags/Tags";
-import smallimage from '../../../Assets/smalimag.png'
+import smallimage from "../../../Assets/smalimag.png";
 
 interface SmallHorizontalBLogCardProps {
-  title?:string
+  title?: string;
 }
 
 const LargeBlogCard = () => {
@@ -40,9 +40,8 @@ const LargeBlogCard = () => {
 const LargeHorizontalBlogCard = () => {
   return (
     <div className="flex rounded-2xl bg-white my-6 gap-x-4 items-center">
-     
       <Image src={blog} className="w-2/3" alt=""></Image>
-   
+
       <div className="p-2">
         <Tags title="LIFESTYLE" background="bg-blue-500"></Tags>
         <h1 className="lg:text-xl 2xl:text-4xl my-4 font-bold">
@@ -58,7 +57,9 @@ const LargeHorizontalBlogCard = () => {
           truth is, sometimes I envy their lifestyle instead. Struggling to sell
           one multi-million dollar home currently.
         </p>
-        <p className="underline cursor-pointer my-2 font-semibold ">READ MORE</p>
+        <p className="underline cursor-pointer my-2 font-semibold ">
+          READ MORE
+        </p>
       </div>
     </div>
   );
@@ -84,19 +85,24 @@ const SmallVerticalBLogCard = () => {
   );
 };
 
-
-
-const SmallHorizontalBLogCard:FC<SmallHorizontalBLogCardProps> = ({title}) => {
+const SmallHorizontalBLogCard: FC<SmallHorizontalBLogCardProps> = ({
+  title,
+}) => {
   return (
     <div className="flex my-6 gap-x-4">
       <div className="w-[200px] overflow-hidden">
-      <Image src={smallimage} className="w-full h-full" alt=''></Image>
-    </div>
+        <Image src={smallimage} className="w-full h-full" alt=""></Image>
+      </div>
       <div>
         <Tags title="TECH" size="text-xs" background="bg-slate-700"></Tags>
-        <h1 className={`lg:text-lg 2xl:text-2xl font-semibold ${title ? title :'text-black'}`}>Traveling Tends to Magnify
-          All Human..</h1>
-          <div className="flex font-semibold text-[#AFAFAF] items-center gap-x-4">
+        <h1
+          className={`lg:text-lg 2xl:text-2xl font-semibold ${
+            title ? title : "text-black"
+          }`}
+        >
+          Traveling Tends to Magnify All Human..
+        </h1>
+        <div className="flex font-semibold text-[#AFAFAF] items-center gap-x-4">
           <p>25 April</p>
           <p>-</p>
           <p>11k views</p>
@@ -106,6 +112,9 @@ const SmallHorizontalBLogCard:FC<SmallHorizontalBLogCardProps> = ({title}) => {
   );
 };
 
-
-
-export { SmallVerticalBLogCard,SmallHorizontalBLogCard, LargeHorizontalBlogCard, LargeBlogCard };
+export {
+  SmallVerticalBLogCard,
+  SmallHorizontalBLogCard,
+  LargeHorizontalBlogCard,
+  LargeBlogCard,
+};

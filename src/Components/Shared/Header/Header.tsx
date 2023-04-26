@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { FC, useContext, useEffect } from "react";
-import logo from "../../../Assets/Header/logo.png";
+import logo from "../../../Assets/favicon/storyverse.png";
 import Link from "next/link";
 import { AuthContext } from "@/Context/userContext";
 
@@ -25,7 +25,7 @@ const Header: FC<any> = () => {
         <p>Posts</p>
         <p>About</p>
       </div>
-      <Image src={logo} alt="" />
+      <Image className="w-60" src={logo} alt="" />
       <div className="space-x-5 flex items-center gap-x-4">
         {user ? (
           <>
