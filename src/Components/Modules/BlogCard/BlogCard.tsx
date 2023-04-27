@@ -67,7 +67,7 @@ const LargeHorizontalBlogCard = () => {
 
 const SmallVerticalBLogCard = () => {
   return (
-    <div className="bg-white rounded-lg shadow-xl">
+    <div className="bg-white my-4 rounded-lg shadow-xl">
       <div className="2xl:h-[180px] lg:h-[150px] overflow-hidden">
         <Image src={blogImg2} alt="" className="w-full"></Image>
       </div>
