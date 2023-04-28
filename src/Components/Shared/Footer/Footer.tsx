@@ -15,7 +15,7 @@ const Footer = () => {
             bgColor="text-gray-800"
             title="WORLD"
           />
-          <div className="space-y-8">
+          <div className="space-y-10">
             <SmallHorizontalBLogCard title="text-gray-200" />
             <SmallHorizontalBLogCard title="text-gray-200" />
             <SmallHorizontalBLogCard title="text-gray-200" />
@@ -28,7 +28,7 @@ const Footer = () => {
             bgColor="text-gray-800"
             title="MUST READ"
           />
-          <div className="space-y-8">
+          <div className="space-y-10">
             {" "}
             <SmallHorizontalBLogCard title="text-gray-200" />
             <SmallHorizontalBLogCard title="text-gray-200" />
@@ -42,16 +42,16 @@ const Footer = () => {
             bgColor="text-gray-800"
             title="HOT TOPICS"
           />
-          <div className="flex text-gray-300 flex-col justify-between space-y-10">
-            <h1 className="text-xl">Global Economy</h1>
-            <h1 className="text-xl">Environment</h1>
-            <h1 className="text-xl">Religion</h1>
-            <h1 className="text-xl">Fashion</h1>
-            <h1 className="text-xl">Scandals</h1>
+          <div className="flex text-gray-400 flex-col justify-between space-y-10">
+            <h1 className="text-lg">Global Economy</h1>
+            <h1 className="text-lg">Environment</h1>
+            <h1 className="text-lg">Religion</h1>
+            <h1 className="text-lg">Fashion</h1>
+            <h1 className="text-lg">Scandals</h1>
           </div>
         </div>
         <div className="col-span-3 px-20">
-          <Cooltitle
+        <Cooltitle
             background="N"
             titleColor="text-gray-200"
             bgColor="text-gray-800"

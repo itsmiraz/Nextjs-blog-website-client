@@ -99,7 +99,7 @@ const SmallHorizontalBLogCard: FC<SmallHorizontalBLogCardProps> = ({
         <Image src={smallimage} className="w-full h-full" alt=""></Image>
       </div>
       <div>
-        <Tags title="TECH" size="text-xs" background="bg-slate-700"></Tags>
+        {/* <Tags title="TECH" size="text-xs" background="bg-slate-700"></Tags> */}
         <h1
           className={`lg:text-lg 2xl:text-2xl font-semibold ${
             title ? title : "text-black"
