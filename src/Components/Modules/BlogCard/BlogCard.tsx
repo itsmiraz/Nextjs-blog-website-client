@@ -5,6 +5,7 @@ import blogImg2 from "../../../Assets/blogimg2.png";
 import blog from "../../../Assets/verticalblog.png";
 import Tags from "../Tags/Tags";
 import smallimage from "../../../Assets/smalimag.png";
+import Link from "next/link";
 
 interface SmallHorizontalBLogCardProps {
   title?: string;
@@ -13,14 +14,16 @@ interface SmallHorizontalBLogCardProps {
 const LargeBlogCard = () => {
   return (
     <div className="relative shadow-xl rounded-2xl bg-white  w-full">
-      <div className="overflow-hidden rounded-none lg:h-[250px] 2xl:h-[350px]">
+      <div className="overflow-hidden rounded-none lg:h-[270px] 2xl:h-[370px]">
         <Image src={blogImg} alt="" className="w-full "></Image>
       </div>
+     
       <div className="p-5">
-        <h1 className="lg:text-2xl 2xl:text-4xl font-bold">
+         <Tags title="LIFESTYLE" size="text-sm" background="bg-blue-500"/>
+        <h1 className="lg:text-2xl text-[#292929] my-2 2xl:text-4xl font-bold">
           We got a right to pick a little fight, Bonanza
         </h1>
-        <div className="flex my-4 font-semibold text-[#AFAFAF] items-center gap-x-10">
+        <div className="flex my-2 font-semibold text-[#AFAFAF] items-center gap-x-10">
           <p>25 April</p>
           <p>10 min read</p>
           <p>11k views</p>
@@ -31,7 +34,9 @@ const LargeBlogCard = () => {
           for having a lifestyle they don’t have, but the truth is, sometimes I
           envy thei lifestyle instead.
         </p>
-        <button className="text-xl my-2 font-semibold">View Details</button>
+        <Link href="/detailpage">
+        <button className="text-lg my-2 font-semibold">View Details</button>
+        </Link>
       </div>
     </div>
   );

@@ -22,7 +22,7 @@ const Header: FC<any> = () => {
     <header className="flex bg-white py-4 px-10 justify-between">
       <div className="flex font-semibold text-xl items-center gap-x-10">
         <Link href={'/'}>Home</Link>
-        <p>Posts</p>
+        <Link href={'/posts'}>Posts</Link>
         <p>About</p>
       </div>
       <Image className="w-60" src={logo} alt="" />
