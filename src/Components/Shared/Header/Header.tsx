@@ -1,13 +1,15 @@
 import Image from "next/image";
-import React, { FC, useContext, useEffect } from "react";
+import React, { FC, useContext, useEffect, useState } from "react";
 import logo from "../../../Assets/favicon/storyverse.png";
 import Link from "next/link";
 import { AuthContext } from "@/Context/userContext";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { motion } from "framer-motion";
 
 const Header: FC<any> = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [show, setShow] = useState<boolean>(false);
 
-  
   const handleLogOut = () => {
     if (logOut) {
       logOut()
@@ -19,18 +21,23 @@ const Header: FC<any> = () => {
   };
 
   return (
-    <header className="flex bg-white py-4 px-10 justify-between">
+    <header className="flex sticky top-0 left-0 z-[100]  bg-white py-4 px-4 md:px-10 items-center justify-between">
       <div className=" md:flex  hidden text-black font-semibold text-xl items-center gap-x-10">
-        <Link href={'/'}>Home</Link>
-        <Link href={'/posts'}>Posts</Link>
-        <Link href={'/about'}>About</Link>
+        <Link href={"/"}>Home</Link>
+        <Link href={"/posts"}>Posts</Link>
+        <Link href={"/about"}>About</Link>
       </div>
-      <Image className="w-20 md:w-60" src={logo} alt="" />
+      <Image className="w-32 md:w-60" src={logo} alt="" />
       <div className="space-x-5 md:flex  hidden items-center gap-x-4">
         {user ? (
           <>
             <p className="font-semibold text-xl">{user.displayName}</p>
-            <button onClick={()=>handleLogOut()} className="text-xl font-semibold">Log Out</button>
+            <button
+              onClick={() => handleLogOut()}
+              className="text-xl font-semibold"
+            >
+              Log Out
+            </button>
           </>
         ) : (
           <>
@@ -47,6 +54,20 @@ const Header: FC<any> = () => {
           </>
         )}
       </div>
+
+      <div onClick={()=>setShow(!show)} className="text-xl  md:hidden block text-zinc-800">
+        <GiHamburgerMenu />
+      </div>
+
+      <motion.div
+        animate={{ x: show ? 0 : -400 }}
+        transition={{duration:0.1}}
+        className="absolute md:hidden   left-0 flex flex-col text-black font-semibold text-xl  gap-x-10 bg-gray-200 top-16 w-full py-4 px-4 z-50"
+      >
+        <Link href={"/"}>Home</Link>
+        <Link href={"/posts"}>Posts</Link>
+        <Link href={"/about"}>About</Link>
+      </motion.div>
     </header>
   );
 };

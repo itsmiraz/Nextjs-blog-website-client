@@ -80,7 +80,7 @@ const SmallVerticalBLogCard = () => {
         <h1 className="lg:text-xl 2xl:text-2xl my-2 font-bold">
           The litigants on the screen are not actors
         </h1>
-        <div className="flex my-2 font-semibold text-[#AFAFAF] items-center gap-x-4">
+        <div className="flex md:text-lg text-sm my-2 font-semibold text-[#AFAFAF] items-center gap-x-4">
           <p>25 April</p>
           <p>-</p>
           <p>11k views</p>
