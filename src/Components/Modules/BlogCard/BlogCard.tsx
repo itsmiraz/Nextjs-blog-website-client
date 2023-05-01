@@ -44,10 +44,10 @@ const LargeBlogCard = () => {
 
 const LargeHorizontalBlogCard = () => {
   return (
-    <div className="flex rounded-2xl bg-white my-6 gap-x-4 items-center">
-      <Image src={blog} className="w-2/3" alt=""></Image>
+    <div className="flex flex-col md:flex-row rounded-2xl bg-white my-6 gap-x-4 items-center">
+      <Image src={blog} className="w-full md:w-2/3" alt=""></Image>
 
-      <div className="p-2">
+      <div className="p-4 md:p-2">
         <Tags title="LIFESTYLE" background="bg-blue-500"></Tags>
         <h1 className="lg:text-xl 2xl:text-4xl my-4 font-bold">
           FASHION The World Caters to Average People and Mediocre{" "}

@@ -9,15 +9,15 @@ import add from '../../../Assets/adimg.png'
 import Image from "next/image";
 const WeeklyPopular = () => {
   return (
-    <div className="px-10 my-10 gap-x-10 grid grid-cols-7">
-      <div className="col-span-2">
+    <div className="px-4 md:px-10 my-10 gap-x-10 grid grid-cols-7">
+      <div className="col-span-7 md:col-span-2">
         <Cooltitle title="WEEKLY POPULAR" background="WEEKlY" />
         <div>
           <LargeBlogCard />
         </div>
       </div>
-      <div className="col-span-3 my-4">
-        <nav className="flex lg:mt-8 2xl:mt-12 mb-4 2xl:mb-8 gap-x-4 cursor-pointer  items-center">
+      <div className="col-span-7 md:col-span-3 my-4">
+        <nav className="flex lg:mt-8 2xl:mt-12 mb-4 overflow-x-auto 2xl:mb-8 gap-x-4 py-4 cursor-pointer my-4  items-center">
           <p className="bg-white  rounded-full hover:bg-slate-700 text-black hover:text-white px-4 py-1">
             All
           </p>
@@ -41,7 +41,7 @@ const WeeklyPopular = () => {
           <SmallVerticalBLogCard />
         </div>
       </div>
-      <div className="col-span-2 pt-10 2xl:pt-12" >
+      <div className="col-span-7 md:col-span-2 pt-10 2xl:pt-12" >
         <Social />
         <Image className="my-10" src={add} alt=""></Image>
       </div>

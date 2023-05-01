@@ -20,13 +20,13 @@ const Header: FC<any> = () => {
 
   return (
     <header className="flex bg-white py-4 px-10 justify-between">
-      <div className="flex text-black font-semibold text-xl items-center gap-x-10">
+      <div className=" md:flex  hidden text-black font-semibold text-xl items-center gap-x-10">
         <Link href={'/'}>Home</Link>
         <Link href={'/posts'}>Posts</Link>
         <Link href={'/about'}>About</Link>
       </div>
-      <Image className="w-60" src={logo} alt="" />
-      <div className="space-x-5 flex items-center gap-x-4">
+      <Image className="w-20 md:w-60" src={logo} alt="" />
+      <div className="space-x-5 md:flex  hidden items-center gap-x-4">
         {user ? (
           <>
             <p className="font-semibold text-xl">{user.displayName}</p>
