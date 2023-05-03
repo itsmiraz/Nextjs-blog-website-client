@@ -32,6 +32,7 @@ const Header: FC<any> = () => {
         {user ? (
           <>
             <p className="font-semibold text-xl">{user.displayName}</p>
+            <Link  className="font-semibold text-xl" href={'/dashboard'}>DashBoard</Link>
             <button
               onClick={() => handleLogOut()}
               className="text-xl font-semibold"
