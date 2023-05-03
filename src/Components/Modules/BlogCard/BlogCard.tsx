@@ -6,6 +6,7 @@ import blog from "../../../Assets/verticalblog.png";
 import Tags from "../Tags/Tags";
 import smallimage from "../../../Assets/smalimag.png";
 import Link from "next/link";
+import { HiEllipsisVertical } from "react-icons/hi2";
 
 interface SmallHorizontalBLogCardProps {
   title?: string;
@@ -17,9 +18,9 @@ const LargeBlogCard = () => {
       <div className="overflow-hidden rounded-none lg:h-[270px] 2xl:h-[370px]">
         <Image src={blogImg} alt="" className="w-full "></Image>
       </div>
-     
+
       <div className="p-5">
-         <Tags title="LIFESTYLE" size="text-sm" background="bg-blue-500"/>
+        <Tags title="LIFESTYLE" size="text-sm" background="bg-blue-500" />
         <h1 className="lg:text-2xl text-[#292929] my-2 2xl:text-4xl font-bold">
           We got a right to pick a little fight, Bonanza
         </h1>
@@ -35,7 +36,7 @@ const LargeBlogCard = () => {
           envy thei lifestyle instead.
         </p>
         <Link href="/detailpage">
-        <button className="text-lg my-2 font-semibold">View Details</button>
+          <button className="text-lg my-2 font-semibold">View Details</button>
         </Link>
       </div>
     </div>
@@ -117,8 +118,32 @@ const SmallHorizontalBLogCard: FC<SmallHorizontalBLogCardProps> = ({
   );
 };
 
+const MiniCard = () => {
+  return (
+    <div>
+      <div className="my-4 grid grid-cols-2 gap-10 font-semibold ">
+        <div className="flex items-center gap-x-6">
+          <p>1.</p>
+          <Image src={blogImg} alt="" className="w-20" />
+          <p className="w-full whitespace-nowrap">
+            Essential Qualities of Highly Successful Music
+          </p>
+        </div>
+        <div className="flex justify-around  items-center gap-x-2">
+          <p>12</p>
+          <p>24</p>
+          <p>2</p>
+          <HiEllipsisVertical />
+        </div>
+      </div>
+      <hr />
+    </div>
+  );
+};
+
 export {
   SmallVerticalBLogCard,
+  MiniCard,
   SmallHorizontalBLogCard,
   LargeHorizontalBlogCard,
   LargeBlogCard,

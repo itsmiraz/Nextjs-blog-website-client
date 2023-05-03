@@ -72,7 +72,7 @@ const Footer = () => {
       </div>
       <div className="h-[1px] w-full bg-slate-800 my-10"></div>
       <div className="text-[#868686] text-[10px] md:text-sm flex justify-between items-center">
-        <p>© 2022, UltraNews | All rights reserved </p>
+        <p>© 2022, UltraNews | All rights reserved to storyverse </p>
         <div className="flex items-center gap-x-3">
           <p>Terms </p>
           <p>Privacy Policy </p>
