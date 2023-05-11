@@ -1,6 +1,7 @@
 import DashBoardLayout from "@/Layouts/DashBoardLayout/DashBoardLayout";
 import Head from "next/head";
-import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import React, { FormEvent, Reducer, useEffect, useReducer, useState } from "react";
 import { toast } from "react-hot-toast";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 
@@ -9,8 +10,43 @@ type Tag = {
   id: number;
 };
 
+type State = {
+  // Define the state type
+  title: string;
+  catagory: number;
+  description: string;
+  summury: string;
+  conclusion: string;
+};
+
+type Action = {
+  // Define the action type
+};
+
+const initialState: State = {
+  title: "",
+  catagory: 0,
+  description: "",
+  summury: "",
+  conclusion: "",
+};
+
+const reducer = (state: State, action: any): State => {
+  // Define the reducer function
+console.log(action);
+  if (action.type === "INPUT") {
+    return {
+      ...state,
+      [action.payload.name]: action.payload.value,
+    };
+  }
+
+  // ...
+
+  // Return the new state object
+  return { ...state /* new properties or updated values based on action */ };
+};
 const UploadBlog = () => {
-  
   // Image State
   const [selectedFile, setSelectedFile] = useState<File | undefined>();
   const [preview, setPreview] = useState<undefined | string>("");
@@ -18,6 +54,18 @@ const UploadBlog = () => {
   // Tags State
   const [tags, setTags] = useState<Tag[]>([]);
   const [tagInput, setTagInput] = useState<string>("");
+
+  // Handle Form
+
+  const [state, dispatch] = useReducer<Reducer<State, Action>>(
+    reducer,
+    initialState
+  );
+
+  const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    console.log(state);
+}
 
   // Add Tags Functions
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,10 +108,12 @@ const UploadBlog = () => {
       return;
     } else {
       const file = e.target.files[0];
+      console.log(file);
       const fileSizeInBytes = file?.size;
       const fileSizeInMB = fileSizeInBytes ? fileSizeInBytes / 1024 : 0;
-      const maxFileSizeInMB = 500;
+      const maxFileSizeInMB = 1024;
       if (fileSizeInMB > maxFileSizeInMB) {
+        console.log(`Please upload a photo under ${maxFileSizeInMB}KB`);
         toast.error(`Please upload a photo under ${maxFileSizeInMB}KB`);
       } else {
         setSelectedFile(file);
@@ -86,15 +136,40 @@ const UploadBlog = () => {
       <h1 className="text-2xl font-semibold">Add A New Blog</h1>
       <form className="w-[500px]" action="">
         {/* Upload Image */}
-        <div className="flex justify-center my-4 items-center">
-          <div className="relative">
-            <AiOutlineCloudUpload className="text-9xl text-zinc-700" />
-            <input
-              type="file"
-              className="w-full h-full absolute top-0 left-0 opacity-0"
-            />
-            <p className="text-xl font-semibold">Upload an Image</p>
-          </div>
+
+        <div className="flex relative justify-center my-4 items-center">
+          {preview ? (
+            <div className="relative rounded-2xl overflow-hiddens">
+              <Image
+                width={500}
+                height={200}
+                src={preview}
+                className="rounded-xl w-full h-full"
+                alt=""
+              />
+              <button
+                onClick={() => setPreview(undefined)}
+                className="absolute bg-gray-100 text-gray-900 rounded-full w-6 h-6 top-4 left-4"
+              >
+                ✕
+              </button>
+            </div>
+          ) : (
+            <>
+              <div className="relative">
+                <AiOutlineCloudUpload className="text-9xl text-zinc-700" />
+                <input
+                  type="file"
+                  onChange={onSelectFile}
+                  className="w-full h-full absolute top-0 left-0 opacity-0"
+                />
+                <p className="text-xl font-semibold">
+                  Upload an Image{" "}
+                  <span className="text-xs">(Maximum Size 1 mb)</span>
+                </p>
+              </div>
+            </>
+          )}
         </div>
         {/* Title */}
         <div className="my-4 ">
@@ -103,6 +178,13 @@ const UploadBlog = () => {
           </p>
           <input
             required
+            onBlur={e =>
+              dispatch({
+                type: "INPUT",
+                payload: { name: e.target.name, value: e.target.value },
+              })
+            }
+            name="title"
             className="w-full py-3 rounded-lg my-2 focus:outline-indigo-300 px-4"
             type="text"
           />
@@ -112,13 +194,16 @@ const UploadBlog = () => {
           <p className="font-semibold text-zinc-800 text-xl">
             Catagory <span className="text-red-500">*</span>
           </p>
-          <select className="p-3 w-full focus:outline-indigo-300 my-2 rounded-lg">
+          <select
+            name="catagory"
+            className="p-3 w-full focus:outline-indigo-300 my-2 rounded-lg"
+          >
             <option disabled>Choose an Option</option>
             <option value={1}>Tech</option>
             <option value={2}>Lifestyle</option>
-            <option value={1}>Travel</option>
-            <option value={1}>Fashion</option>
-            <option value={1}>Sports</option>
+            <option value={3}>Travel</option>
+            <option value={4}>Fashion</option>
+            <option value={5}>Sports</option>
           </select>
         </div>
         {/* Description */}
@@ -127,6 +212,7 @@ const UploadBlog = () => {
             Description <span className="text-red-500">*</span>
           </p>
           <textarea
+            name="description"
             required
             className="w-full py-3 rounded-lg my-2 h-40 focus:outline-indigo-300 px-4"
           />
@@ -138,6 +224,7 @@ const UploadBlog = () => {
           </p>
           <textarea
             required
+            name="summury"
             className="w-full py-3 rounded-lg my-2 h-20 focus:outline-indigo-300 px-4"
           />
         </div>
@@ -148,6 +235,7 @@ const UploadBlog = () => {
             Conclusion <span className="text-red-500">*</span>
           </p>
           <textarea
+            name="conclusion"
             required
             className="w-full py-3 rounded-lg my-2 h-20 focus:outline-indigo-300 px-4"
           />
@@ -189,6 +277,8 @@ const UploadBlog = () => {
             )}
           </div>
         </div>
+
+        <button className="w-full bg-">Upload</button>
       </form>
     </DashBoardLayout>
   );
